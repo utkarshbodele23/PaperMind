@@ -14,7 +14,7 @@ Instead of acting like a generic chatbot, PaperMind focuses on **retrieval quali
 
 🌐 **Landing Page:** [LANDING_PAGE_LINK](https://papermind-rag.vercel.app/)
 
-🎥 **Backend API Demo Video:** Comming soon..
+🎥 **Backend API Demo Video:** Coming soon...
 
 ---
 
