@@ -10,7 +10,9 @@ Instead of acting like a generic chatbot, PaperMind focuses on **retrieval quali
 
 ## 🚀 Live Demo
 
-🌐 **Landing Page:** [YOUR_LANDING_PAGE_LINK](https://papermind-rag.vercel.app/)
+![Landing page](docs/landing_page.png)
+
+🌐 **Landing Page:** [LANDING_PAGE_LINK](https://papermind-rag.vercel.app/)
 
 🎥 **Backend API Demo Video:** Comming soon..
 
@@ -302,26 +304,6 @@ Planned improvements:
 - Retrieval evaluation metrics
 - Authentication
 - Persistent user workspaces
-
----
-
-## 📷 Screenshots
-
-### Landing Page
-
-![Landing](docs/landing_page.png)
-
----
-
-### Retrieval Pipeline
-
-![Retrieval](docs/retrieval_pipeline.png)
-
----
-
-### API Demo
-
-![API Demo](docs/demo.gif)
 
 ---
 
