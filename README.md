@@ -106,14 +106,11 @@ flowchart TD
     classDef search fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff
     classDef fusion fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff
     classDef generate fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
-    
-    %% Link Styles for Unsafe Arrow
-    linkStyle 9 stroke:#ef4444,stroke-width:2px,color:#ef4444
 
     A["👤 User Question"]:::user --> B{"🛡️ Safety Classifier Node"}:::safety
     
     %% Path 1: Goes to Planner without 'Safe' label
-    B --> C{"🧠 Planner Node"}:::planner
+    B -- "SAFE" --> C{"🧠 Planner Node"}:::planner
     
     C -- "CONVERSATIONAL" --> Y["💬 Fast LLM Response (Bypass RAG)"]:::generate
     C -- "RAG_REQUIRED" --> D["📝 History-Aware Rewrite (Optional)"]:::rewrite
@@ -124,7 +121,7 @@ flowchart TD
     E --> Q2["Query 2"]:::query
     E --> Q3["Query 3"]:::query
     
-    subgraph "Concurrent Execution (ThreadPoolExecutor)"
+    subgraph "Concurrent Execution"
         Q1 --> V1["Vector Search"]:::search
         Q1 --> B1["BM25 Search"]:::search
         V1 & B1 --> H1["Hybrid Fusion (RRF)"]:::fusion
