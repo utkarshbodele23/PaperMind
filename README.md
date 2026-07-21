@@ -10,7 +10,8 @@ Instead of acting like a generic chatbot, PaperMind focuses on **retrieval quali
 
 ## 🚀 Live Demo
 
-![Landing page](docs/landing_page.png)
+![Landing page](img/landing_page.png)
+![UI](img/frontend.png)
 
 🌐 **LIVE DEMO:** [Papermind Live Demo](https://papermind-rag.vercel.app/)
 
