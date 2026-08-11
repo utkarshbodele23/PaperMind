@@ -23,6 +23,8 @@ services:
       # Connect to the local Qdrant container
       - QDRANT_URL=http://qdrant:6333
       - QDRANT_API_KEY=""
+      # Allow the frontend to communicate with the backend
+      - CORS_ALLOWED_ORIGINS=["*"]
       # The LLM API key must be provided by the user in a .env file
       - GROQ_API_KEY=${GROQ_API_KEY:-""}
     volumes:
