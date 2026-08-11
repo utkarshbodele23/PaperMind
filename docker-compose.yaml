@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: papermind_qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: papermind_backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Local storage adapter for backend
+      - TEMP_STORAGE_MODE=local
+      # Connect to the local Qdrant container
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_API_KEY=""
+      # The LLM API key must be provided by the user in a .env file
+      - GROQ_API_KEY=${GROQ_API_KEY:-""}
+    volumes:
+      # Mount a local folder so PDFs and Metadata persist between runs
+      - ./local_data:/app/local_data
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: papermind_frontend
+    ports:
+      - "3001:3001"
+    environment:
+      # Tell the frontend to talk to the local backend port
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  qdrant_data:

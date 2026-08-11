@@ -17,6 +17,28 @@ Instead of acting like a generic chatbot, PaperMind focuses on **retrieval quali
 
 ---
 
+## 🐳 Quick Start (Local Docker)
+
+To evaluate the software locally, the entire application stack is packaged into a single Docker Compose configuration.
+
+1. **Clone the repository** (including submodules):
+   ```bash
+   git clone --recurse-submodules https://github.com/utkarshbodele23/PaperMind.git
+   cd PaperMind
+   ```
+2. **Configure the environment**:
+   ```bash
+   cp .env.example .env
+   ```
+   Open the newly created `.env` file and provide your `GROQ_API_KEY`.
+3. **Start the application**:
+   ```bash
+   docker-compose up --build
+   ```
+4. **Access the application**: Navigate to [http://localhost:3001](http://localhost:3001) in your web browser.
+
+---
+
 ## 📌 Problem
 
 Research papers are difficult to navigate:
@@ -278,7 +300,6 @@ During development:
 Planned improvements:
 - Authentication
 - Persistent user workspaces
-- Advanced Reranking Models
 - Image & Multimodal reasoning
 
 ---
