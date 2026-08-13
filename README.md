@@ -113,7 +113,7 @@ Answer + Citations
 
 ---
 
-## 🔍 Retrieval Pipeline
+## 🔍 Retrieval Pipeline Architecture
 
 PaperMind uses an advanced multi-stage retrieval pipeline instead of simple vector search. 
 Here is the exact end-to-end flow when a user asks a question:
